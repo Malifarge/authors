@@ -16,7 +16,7 @@ app.get('/:id/books', (req, res)=>{
     const {id} = req.params
     const author = authors.find(author => author.id ===Number (id))
     if (author){
-        res.send(`${author.books}`)
+        res.send(author.books.join(", "))
     }else {
         res.status(404).send("Not Found")
     }
