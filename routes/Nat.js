@@ -28,13 +28,18 @@ const authors = [
     },
 ]
 
+
+
 app.get('/:id', (req, res) =>{
     let authorsID = req.params.id;
-    console.log(authorsID);
-    res.json({
-        name: authors[authorsID-1].name,
-        nationality: authors[authorsID-1].nationality
-    })
+    res.json(`${authors[authorsID-1].name}, ${authors[authorsID-1].nationality}`
+    )
+})
+
+app.get('/:id/books', (req, res)=>{
+    let authorsID = req.params.id;
+    res.json(`${authors[authorsID-1].books
+    }`)
 })
 
 module.exports = app
