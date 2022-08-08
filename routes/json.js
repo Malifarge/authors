@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 
@@ -32,14 +33,17 @@ const authors = [
 
 app.get('/:id', (req, res) =>{
     let authorsID = req.params.id;
-    res.json(`${authors[authorsID-1].name}, ${authors[authorsID-1].nationality}`
+    res.json({
+        name : authors[authorsID-1].name, 
+        nationality : authors[authorsID-1].nationality}
     )
 })
 
 app.get('/:id/books', (req, res)=>{
     let authorsID = req.params.id;
-    res.json(`${authors[authorsID-1].books
-    }`)
+    res.json({
+        books : authors[authorsID-1].books
+    })
 })
 
 module.exports = app
